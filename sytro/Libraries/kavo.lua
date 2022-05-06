@@ -1435,7 +1435,7 @@ function Kavo.CreateLib(kavName, themeList)
                 end)()
 
                 local Value
-                sliderBtn.MouseButton1Down:Connect(function()
+                sliderBtn.MouseButton1Down:Connect(function(touch, gameProcessedEvent)
                     if not focusing then
                         game.TweenService:Create(val, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
                             TextTransparency = 0
@@ -1444,7 +1444,7 @@ function Kavo.CreateLib(kavName, themeList)
                         pcall(function()
                             callback(Value)
                         end)
-                        sliderDrag:TweenSize(UDim2.new(0, math.clamp(mouse.X - sliderDrag.AbsolutePosition.X, 0, 149), 0, 6), "InOut", "Linear", 0.05, true)
+                        sliderDrag:TweenSize(UDim2.new(0, math.clamp(touch.X - sliderDrag.AbsolutePosition.X, 0, 149), 0, 6), "InOut", "Linear", 0.05, true)
                         moveconnection = uis.TouchMoved:connect(function(touch, gameProcessedEvent)
                             val.Text = Value
                             Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 149) * sliderDrag.AbsoluteSize.X) + tonumber(minvalue))
