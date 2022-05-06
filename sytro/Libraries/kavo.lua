@@ -2615,11 +2615,11 @@ function Kavo.CreateLib(kavName, themeList)
 
                 onrainbow.MouseButton1Click:Connect(togglerainbow)
                 --
-                uis.TouchMoved:connect(function(touch, gameProcessedEvent, cp)
+                mouse.Move:connect(cp)
                 rgb.MouseButton1Down:connect(function()colorpicker=true end)
                 dark.MouseButton1Down:connect(function()darknesss=true end)
-                uis.TouchEnded:connect(function(touch, gameProcessedEvent, input)
-                    if input.UserInputType.Name == 'MouseButton1' or input.UserInputType.Name == 'Touch' then
+                uis.InputEnded:Connect(function(input)
+                    if input.UserInputType.Name == 'MouseButton1' then
                         if darknesss then darknesss = false end
                         if colorpicker then colorpicker = false end
                     end
