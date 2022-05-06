@@ -1435,7 +1435,7 @@ function Kavo.CreateLib(kavName, themeList)
                 end)()
 
                 local Value
-                sliderBtn.MouseButton1Down:Connect(function(touch, gameProcessedEvent)
+                sliderBtn.MouseButton1Down:Connect(function()
                     if not focusing then
                         game.TweenService:Create(val, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
                             TextTransparency = 0
@@ -1445,16 +1445,16 @@ function Kavo.CreateLib(kavName, themeList)
                             callback(Value)
                         end)
                         sliderDrag:TweenSize(UDim2.new(0, math.clamp(mouse.X - sliderDrag.AbsolutePosition.X, 0, 149), 0, 6), "InOut", "Linear", 0.05, true)
-                        moveconnection = uis.TouchMoved:connect(function(touch, gameProcessedEvent)
+                        moveconnection = mouse.Move:Connect(function()
                             val.Text = Value
                             Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 149) * sliderDrag.AbsoluteSize.X) + tonumber(minvalue))
                             pcall(function()
                                 callback(Value)
                             end)
-                            sliderDrag:TweenSize(UDim2.new(0, math.clamp(touch.X - sliderDrag.AbsolutePosition.X, 0, 149), 0, 6), "InOut", "Linear", 0.05, true)
+                            sliderDrag:TweenSize(UDim2.new(0, math.clamp(mouse.X - sliderDrag.AbsolutePosition.X, 0, 149), 0, 6), "InOut", "Linear", 0.05, true)
                         end)
-                        releaseconnection = uis.TouchEnded:connect(function(touch, gameProcessedEvent, Mouse)
-                            if Mouse.UserInputType == Enum.UserInputType.MouseButton1 or Mouse.UserInputType == Enum.UserInputType.Touch then
+                        releaseconnection = uis.InputEnded:Connect(function(Mouse)
+                            if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
                                 Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 149) * sliderDrag.AbsoluteSize.X) + tonumber(minvalue))
                                 pcall(function()
                                     callback(Value)
@@ -1463,7 +1463,7 @@ function Kavo.CreateLib(kavName, themeList)
                                 game.TweenService:Create(val, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
                                     TextTransparency = 1
                                 }):Play()
-                                sliderDrag:TweenSize(UDim2.new(0, math.clamp(touch.X - sliderDrag.AbsolutePosition.X, 0, 149), 0, 6), "InOut", "Linear", 0.05, true)
+                                sliderDrag:TweenSize(UDim2.new(0, math.clamp(mouse.X - sliderDrag.AbsolutePosition.X, 0, 149), 0, 6), "InOut", "Linear", 0.05, true)
                                 moveconnection:Disconnect()
                                 releaseconnection:Disconnect()
                             end
@@ -2615,10 +2615,10 @@ function Kavo.CreateLib(kavName, themeList)
 
                 onrainbow.MouseButton1Click:Connect(togglerainbow)
                 --
-                uis.TouchMoved:connect(touch, gameProcessedEvent, cp)
+                uis.TouchMoved:connect(function(touch, gameProcessedEvent, cp)
                 rgb.MouseButton1Down:connect(function()colorpicker=true end)
                 dark.MouseButton1Down:connect(function()darknesss=true end)
-                uis.TouchEnded:Connect(function(touch, gameProcessedEvent, input)
+                uis.TouchEnded:connect(function(touch, gameProcessedEvent, input)
                     if input.UserInputType.Name == 'MouseButton1' or input.UserInputType.Name == 'Touch' then
                         if darknesss then darknesss = false end
                         if colorpicker then colorpicker = false end
