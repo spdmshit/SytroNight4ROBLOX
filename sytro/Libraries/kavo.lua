@@ -1444,7 +1444,7 @@ function Kavo.CreateLib(kavName, themeList)
                         pcall(function()
                             callback(Value)
                         end)
-                        sliderDrag:TweenSize(UDim2.new(0, math.clamp(touch.X - sliderDrag.AbsolutePosition.X, 0, 149), 0, 6), "InOut", "Linear", 0.05, true)
+                        sliderDrag:TweenSize(UDim2.new(0, math.clamp(mouse.X - sliderDrag.AbsolutePosition.X, 0, 149), 0, 6), "InOut", "Linear", 0.05, true)
                         moveconnection = uis.TouchMoved:connect(function(touch, gameProcessedEvent)
                             val.Text = Value
                             Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 149) * sliderDrag.AbsoluteSize.X) + tonumber(minvalue))
@@ -2615,11 +2615,11 @@ function Kavo.CreateLib(kavName, themeList)
 
                 onrainbow.MouseButton1Click:Connect(togglerainbow)
                 --
-                mouse.Move:connect(cp)
+                uis.TouchMoved:connect(touch, gameProcessedEvent, cp)
                 rgb.MouseButton1Down:connect(function()colorpicker=true end)
                 dark.MouseButton1Down:connect(function()darknesss=true end)
-                uis.InputEnded:Connect(function(input)
-                    if input.UserInputType.Name == 'MouseButton1' then
+                uis.TouchEnded:Connect(function(touch, gameProcessedEvent, input)
+                    if input.UserInputType.Name == 'MouseButton1' or input.UserInputType.Name == 'Touch' then
                         if darknesss then darknesss = false end
                         if colorpicker then colorpicker = false end
                     end
