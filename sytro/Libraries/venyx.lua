@@ -117,7 +117,7 @@ do
 		end)
 		
 		input.InputEnded:Connect(function(key)
-			if key.UserInputType == Enum.UserInputType.MouseButton1 then
+			if key.UserInputType == Enum.UserInputType.MouseButton1 OR key.UserInputType == Enum.UserInputType.Touch then
 				for i, callback in pairs(self.ended) do
 					callback()
 				end
@@ -1643,6 +1643,7 @@ do
 		end)
 
 		slider.MouseButton1Down:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
 			dragging = true
 			
 			while dragging do
@@ -2022,7 +2023,7 @@ do
 		end
 	end
 	
-	function section:updateColorPicker(colorpicker, title, color)
+	function section:updateColorPicker(colorpicker, title, color, input)
 		colorpicker = self:getModule(colorpicker)
 		
 		local picker = self.colorpickers[colorpicker]
@@ -2037,6 +2038,7 @@ do
 		local color3
 		local hue, sat, brightness
 		
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
 		if type(color) == "table" then -- roblox is literally retarded x2
 			hue, sat, brightness = unpack(color)
 			color3 = Color3.fromHSV(hue, sat, brightness)
