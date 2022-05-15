@@ -1,4 +1,7 @@
-local whitelisted = {
-  "bedwars091256"
-}
-return whitelisted
+{
+  "players": {
+    "FaxFever"
+  },
+  "owners": {
+    "bedwars091256"
+  }
