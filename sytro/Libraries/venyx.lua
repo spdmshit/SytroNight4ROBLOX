@@ -1,5 +1,5 @@
--- venyx ui lib reuploaded by me
--- init
+-- credits init for re-uploading venyx ui lib
+-- credits to Svamp or me for adding mobile support
 local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
 
