@@ -1,4 +1,4 @@
-local players = {
+local whitelisted = {
   "bedwars091256"
 }
-return players
+return whitelisted
