@@ -1,8 +1,11 @@
+-- venyx ui lib reuploaded by me
+-- init
 local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
 
 -- services
 local input = game:GetService("UserInputService")
+local uis = game:GetService("UserInputService")
 local run = game:GetService("RunService")
 local tween = game:GetService("TweenService")
 local tweeninfo = TweenInfo.new
@@ -1425,8 +1428,9 @@ do
 			draggingColor = true
 			
 			while draggingColor do
-			
-				hue = 1 - math.clamp(1 - ((mouse.X - colorPosition.X) / colorSize.X), 0, 1)
+
+			    uis.TouchMoved:connect(function(touch, gameProcessedEvent)
+				hue = 1 - math.clamp(1 - ((touch.X - colorPosition.X) / colorSize.X), 0, 1)
 				color3 = Color3.fromHSV(hue, sat, brightness)
 				
 				for i, prop in pairs({"r", "g", "b"}) do
@@ -2061,33 +2065,34 @@ do
 		end
 	end
 	
-	function section:updateSlider(slider, title, value, min, max, lvalue, Mouse)
-		if Mouse.UserInputType == Enum.UserInputType.MouseButton1 or Mouse.UserInputType == Enum.UserInputType.Touch then
-			slider = self:getModule(slider)
+	function section:updateSlider(slider, title, value, min, max, lvalue)
+		slider = self:getModule(slider)
 		
-			if title then
-				slider.Title.Text = title
-			end
-			
-			local bar = slider.Slider.Bar
-			local percent = (mouse.X - bar.AbsolutePosition.X) / bar.AbsoluteSize.X
-			
-			if value then -- support negative ranges
-				percent = (value - min) / (max - min)
-			end
-			
-			percent = math.clamp(percent, 0, 1)
-			value = value or math.floor(min + (max - min) * percent)
-			
-			slider.TextBox.Text = value
-			utility:Tween(bar.Fill, {Size = UDim2.new(percent, 0, 1, 0)}, 0.1)
-			
-			if value ~= lvalue and slider.ImageTransparency == 0 then
-				utility:Pop(slider, 10)
-			end
-			
-			return value
+		if title then
+			slider.Title.Text = title
 		end
+		
+		local bar = slider.Slider.Bar
+		uis.TouchMoved:connect(function(touch, gameProcessedEvent)
+		local percent = (touch.X - bar.AbsolutePosition.X) / bar.AbsoluteSize.X
+		
+		if value then -- support negative ranges
+			percent = (value - min) / (max - min)
+		end
+		
+		percent = math.clamp(percent, 0, 1)
+		value = value or math.floor(min + (max - min) * percent)
+		
+		slider.TextBox.Text = value
+		utility:Tween(bar.Fill, {Size = UDim2.new(percent, 0, 1, 0)}, 0.1)
+		
+		if value ~= lvalue and slider.ImageTransparency == 0 then
+			utility:Pop(slider, 10)
+		end
+		
+		return value
+	end
+ end)
 	
 	function section:updateDropdown(dropdown, title, list, callback)
 		dropdown = self:getModule(dropdown)
