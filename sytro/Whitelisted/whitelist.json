@@ -1,0 +1,4 @@
+local players = {
+  "bedwars091256"
+}
+return players
