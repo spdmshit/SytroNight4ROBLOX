@@ -191,12 +191,6 @@ function Kavo:ToggleUI()
     end
 end
 
-function Kavo:RgbUI()
-	rs.RenderStepped:Connect(function()
-		SchemeColor = Color3.fromHSV(tick()%3/3,1,1)
-	end)
-end
-
 function Kavo.CreateLib(kavName, themeList)
     if not themeList then
         themeList = themes
