@@ -1259,7 +1259,7 @@ function Kavo.CreateLib(kavName, themeList)
                 slidTip = slidTip or "Slider tip here"
                 maxvalue = maxvalue or 500
                 minvalue = minvalue or 16
-                startVal = startVal or 0
+                startVal = startVal or 0.1
                 callback = callback or function() end
 
                 local sliderElement = Instance.new("TextButton")
