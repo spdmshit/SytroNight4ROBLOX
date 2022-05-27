@@ -1359,7 +1359,7 @@ function Kavo.CreateLib(kavName, themeList)
                 val.Position = UDim2.new(0.352386296, 0, 0.272727281, 0)
                 val.Size = UDim2.new(0, 41, 0, 14)
                 val.Font = Enum.Font.GothamSemibold
-                val.Text = minvalue
+                val.Text = startVal or minvalue
                 val.TextColor3 = themeList.TextColor
                 val.TextSize = 14.000
                 val.TextTransparency = 1.000
