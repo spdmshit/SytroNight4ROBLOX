@@ -1,4 +1,4 @@
-local whitelisted = {
-	"c3f045eac8854a3fb02d46ef71744030"
+local whitelisted ={
+	"0009e1ef-df30-4843-85ed-f496e7014b9c"
 }
 return whitelisted
