@@ -88,19 +88,54 @@ local themeStyles = {
 		TextColor = Color3.fromRGB(255,255,255),
 		ElementColor = Color3.fromRGB(20, 20, 20)
 	},
+	RedBerry = {
+		SchemeColor = Color3.fromRGB(231, 17, 42),
+		Background = Color3.fromRGB(0, 0, 0),
+		Header = Color3.fromRGB(31, 31, 31),
+		TextColor = Color3.fromRGB(255,255,255),
+		ElementColor = Color3.fromRGB(31, 31, 31)
+	},
+	BlueBerry = {
+		SchemeColor = Color3.fromRGB(2, 17, 231),
+		Background = Color3.fromRGB(0, 0, 0),
+		Header = Color3.fromRGB(31, 31, 31),
+		TextColor = Color3.fromRGB(255,255,255),
+		ElementColor = Color3.fromRGB(31, 31, 31)
+	},
+	Corn = {
+		SchemeColor = Color3.fromRGB(249, 100, 30),
+		Background = Color3.fromRGB(0, 0, 0),
+		Header = Color3.fromRGB(0, 0, 0),
+		TextColor = Color3.fromRGB(255,255,255),
+		ElementColor = Color3.fromRGB(31, 31, 31)
+	},
+	Kiwi = {
+		SchemeColor = Color3.fromRGB(48, 255, 0),
+		Background = Color3.fromRGB(41, 41, 41),
+		Header = Color3.fromRGB(31, 31, 31),
+		TextColor = Color3.fromRGB(255,255,255),
+		ElementColor = Color3.fromRGB(66, 66, 66)
+	},
+	Luna = {
+		SchemeColor = Color3.fromRGB(126, 6, 232),
+		Background = Color3.fromRGB(0, 0, 0),
+		Header = Color3.fromRGB(31, 31, 31),
+		TextColor = Color3.fromRGB(255,255,255),
+		ElementColor = Color3.fromRGB(31, 31, 31)
+	},
+	Night = {
+		SchemeColor = Color3.fromRGB(37, 37, 166),
+		Background = Color3.fromRGB(24, 24, 107),
+		Header = Color3.fromRGB(28, 28, 198),
+		TextColor = Color3.fromRGB(255,255,255),
+		ElementColor = Color3.fromRGB(31, 31, 31)
+	},
 	GrapeTheme = {
 		SchemeColor = Color3.fromRGB(166, 71, 214),
 		Background = Color3.fromRGB(64, 50, 71),
 		Header = Color3.fromRGB(36, 28, 41),
 		TextColor = Color3.fromRGB(255,255,255),
 		ElementColor = Color3.fromRGB(74, 58, 84)
-	},
-	GoldTheme = {
-		SchemeColor = Color3.fromRGB(255,215,0),
-		Background = Color3.fromRGB(10, 10, 10),
-		Header = Color3.fromRGB(5, 5, 5),
-		TextColor = Color3.fromRGB(255,255,255),
-		ElementColor = Color3.fromRGB(20, 20, 20)
 	},
 	Ocean = {
 		SchemeColor = Color3.fromRGB(86, 76, 251),
@@ -177,10 +212,20 @@ function Kavo.CreateLib(kavName, themeList)
 		themeList = themeStyles.LightTheme
 	elseif themeList == "BloodTheme" then
 		themeList = themeStyles.BloodTheme
+	elseif themeList == "RedBerry" then
+		themeList = themeStyles.RedBerry
+	elseif themeList == "BlueBerry" then
+		themeList = themeStyles.BlueBerry
+	elseif themeList == "Corn" then
+		themeList = themeStyles.Corn
+	elseif themeList == "Kiwi" then
+		themeList = themeStyles.Kiwi
+	elseif themeList == "Luna" then
+		themeList = themeStyles.Luna
+	elseif themeList == "Night" then
+		themeList = themeStyles.Night
 	elseif themeList == "GrapeTheme" then
 		themeList = themeStyles.GrapeTheme
-	elseif themeList == "GoldTheme" then
-		themeList = themeStyles.GoldTheme
 	elseif themeList == "Ocean" then
 		themeList = themeStyles.Ocean
 	elseif themeList == "Midnight" then
@@ -433,7 +478,6 @@ function Kavo.CreateLib(kavName, themeList)
 		page.ChildRemoved:Connect(UpdateSize)
 
 		tabButton.MouseButton1Click:Connect(function()
-			playsound("rbxassetid://452267918", 0.3)
 			UpdateSize()
 			for i,v in next, Pages:GetChildren() do
 				v.Visible = false
@@ -695,7 +739,6 @@ function Kavo.CreateLib(kavName, themeList)
 				btn.MouseButton1Click:Connect(function()
 					if not focusing then
 						callback()
-						playsound("rbxassetid://452267918", 0.3)
 						local c = sample:Clone()
 						c.Parent = btn
 						local x, y = (ms.X - c.AbsolutePosition.X), (ms.Y - c.AbsolutePosition.Y)
@@ -704,7 +747,6 @@ function Kavo.CreateLib(kavName, themeList)
 						if btn.AbsoluteSize.X >= btn.AbsoluteSize.Y then
 							size = (btn.AbsoluteSize.X * 1.5)
 						else
-							playsound("rbxassetid://452267918", 0.3)
 							size = (btn.AbsoluteSize.Y * 1.5)
 						end
 						c:TweenSizeAndPosition(UDim2.new(0, size, 0, size), UDim2.new(0.5, (-size / 2), 0.5, (-size / 2)), 'Out', 'Quad', len, true, nil)
@@ -739,7 +781,6 @@ function Kavo.CreateLib(kavName, themeList)
 					end
 				end)
 				viewInfo.MouseButton1Click:Connect(function()
-					playsound("rbxassetid://452267918", 0.3)
 					if not viewDe then
 						viewDe = true
 						focusing = true
@@ -894,7 +935,6 @@ function Kavo.CreateLib(kavName, themeList)
 				local infBtn = viewInfo
 
 				btn.MouseButton1Click:Connect(function()
-					playsound("rbxassetid://452267918", 0.3)
 					if focusing then
 						for i,v in next, infoContainer:GetChildren() do
 							Utility:TweenObject(v, {Position = UDim2.new(0,0,2,0)}, 0.2)
@@ -940,7 +980,6 @@ function Kavo.CreateLib(kavName, themeList)
 				end)
 
 				viewInfo.MouseButton1Click:Connect(function()
-					playsound("rbxassetid://452267918", 0.3)
 					if not viewDe then
 						viewDe = true
 						focusing = true
@@ -1102,7 +1141,6 @@ function Kavo.CreateLib(kavName, themeList)
 				btn.MouseButton1Click:Connect(function()
 					if not focusing then
 						if toggled == false then
-							playsound("rbxassetid://452267918", 0.3)
 							game.TweenService:Create(img, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
 								ImageTransparency = 0
 							}):Play()
@@ -1123,7 +1161,6 @@ function Kavo.CreateLib(kavName, themeList)
 							end
 							c:Destroy()
 						else
-							playsound("rbxassetid://452267918", 0.3)
 							game.TweenService:Create(img, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
 								ImageTransparency = 1
 							}):Play()
@@ -1187,7 +1224,6 @@ function Kavo.CreateLib(kavName, themeList)
 					end
 				end)()
 				viewInfo.MouseButton1Click:Connect(function()
-					playsound("rbxassetid://452267918", 0.3)
 					if not viewDe then
 						viewDe = true
 						focusing = true
@@ -1421,7 +1457,6 @@ function Kavo.CreateLib(kavName, themeList)
 						end)
 						sliderDrag:TweenSize(UDim2.new(0, math.clamp(mouse.X - sliderDrag.AbsolutePosition.X, 0, 149), 0, 6), "InOut", "Linear", 0.05, true)
 						moveconnection = mouse.Move:Connect(function()
-							playsound("rbxassetid://452267918", 0.3)
 							val.Text = Value
 							Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 149) * sliderDrag.AbsoluteSize.X) + tonumber(minvalue))
 							pcall(function()
@@ -1431,7 +1466,6 @@ function Kavo.CreateLib(kavName, themeList)
 						end)
 						releaseconnection = uis.InputEnded:Connect(function(Mouse)
 							if Mouse.UserInputType == Enum.UserInputType.MouseButton1 or Mouse.UserInputType == Enum.UserInputType.Touch then
-								playsound("rbxassetid://452267918", 0.3)
 								Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 149) * sliderDrag.AbsoluteSize.X) + tonumber(minvalue))
 								pcall(function()
 									callback(Value)
@@ -1454,7 +1488,6 @@ function Kavo.CreateLib(kavName, themeList)
 					end
 				end)
 				viewInfo.MouseButton1Click:Connect(function()
-					playsound("rbxassetid://452267918", 0.3)
 					if not viewDe then
 						viewDe = true
 						focusing = true
@@ -1525,7 +1558,6 @@ function Kavo.CreateLib(kavName, themeList)
 				dropOpen.TextSize = 14.000
 				dropOpen.ClipsDescendants = true
 				dropOpen.MouseButton1Click:Connect(function()
-					playsound("rbxassetid://452267918", 0.3)
 					if not focusing then
 						if opened then
 							opened = false
@@ -1700,7 +1732,6 @@ function Kavo.CreateLib(kavName, themeList)
 				end 
 
 				viewInfo.MouseButton1Click:Connect(function()
-					playsound("rbxassetid://452267918", 0.3)
 					if not viewDe then
 						viewDe = true
 						focusing = true
@@ -1750,7 +1781,6 @@ function Kavo.CreateLib(kavName, themeList)
 					optionSelect.TextXAlignment = Enum.TextXAlignment.Left
 					optionSelect.ClipsDescendants = true
 					optionSelect.MouseButton1Click:Connect(function()
-						playsound("rbxassetid://452267918", 0.3)
 						if not focusing then
 							opened = false
 							callback(v)
@@ -1852,7 +1882,6 @@ function Kavo.CreateLib(kavName, themeList)
 						UICorner_2.CornerRadius = UDim.new(0, 4)
 						UICorner_2.Parent = optionSelect
 						optionSelect.MouseButton1Click:Connect(function()
-							playsound("rbxassetid://452267918", 0.3)
 							if not focusing then
 								opened = false
 								callback(v)
@@ -2047,7 +2076,6 @@ function Kavo.CreateLib(kavName, themeList)
 				viewInfo.ImageRectOffset = Vector2.new(764, 764)
 				viewInfo.ImageRectSize = Vector2.new(36, 36)
 				viewInfo.MouseButton1Click:Connect(function()
-					playsound("rbxassetid://452267918", 0.3)
 					if not viewDe then
 						viewDe = true
 						focusing = true
@@ -2198,7 +2226,6 @@ function Kavo.CreateLib(kavName, themeList)
 				colorElement.TextColor3 = Color3.fromRGB(0, 0, 0)
 				colorElement.TextSize = 14.000
 				colorElement.MouseButton1Click:Connect(function()
-					playsound("rbxassetid://452267918", 0.3)
 					if not focusing then
 						if colorOpened then
 							colorOpened = false
@@ -2321,7 +2348,6 @@ function Kavo.CreateLib(kavName, themeList)
 				viewInfo.ImageRectOffset = Vector2.new(764, 764)
 				viewInfo.ImageRectSize = Vector2.new(36, 36)
 				viewInfo.MouseButton1Click:Connect(function()
-					playsound("rbxassetid://452267918", 0.3)
 					if not viewDe then
 						viewDe = true
 						focusing = true
@@ -2599,13 +2625,12 @@ function Kavo.CreateLib(kavName, themeList)
 				end
 
 				onrainbow.MouseButton1Click:Connect(togglerainbow)
-				playsound("rbxassetid://452267918", 0.3)
+				--
 				mouse.Move:connect(cp)
-				rgb.MouseButton1Down:connect(function()playsound("rbxassetid://452267918", 0.3) colorpicker=true end)
-				dark.MouseButton1Down:connect(function()playsound("rbxassetid://452267918", 0.3) darknesss=true end)
+				rgb.MouseButton1Down:connect(function()colorpicker=true end)
+				dark.MouseButton1Down:connect(function()darknesss=true end)
 				uis.InputEnded:Connect(function(input)
 					if input.UserInputType.Name == 'MouseButton1' or input.UserInputType.Name == 'Touch' then
-						playsound("rbxassetid://452267918", 0.3)
 						if darknesss then darknesss = false end
 						if colorpicker then colorpicker = false end
 					end
