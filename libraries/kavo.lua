@@ -95,12 +95,12 @@ local themeStyles = {
 		TextColor = Color3.fromRGB(255,255,255),
 		ElementColor = Color3.fromRGB(74, 58, 84)
 	},
-    GoldTheme = {
+	GoldTheme = {
 		SchemeColor = Color3.fromRGB(255,215,0),
-        Background = Color3.fromRGB(10, 10, 10),
-        Header = Color3.fromRGB(5, 5, 5),
-        TextColor = Color3.fromRGB(255,255,255),
-        ElementColor = Color3.fromRGB(20, 20, 20)
+		Background = Color3.fromRGB(10, 10, 10),
+		Header = Color3.fromRGB(5, 5, 5),
+		TextColor = Color3.fromRGB(255,255,255),
+		ElementColor = Color3.fromRGB(20, 20, 20)
 	},
 	Ocean = {
 		SchemeColor = Color3.fromRGB(86, 76, 251),
@@ -443,7 +443,7 @@ function Kavo.CreateLib(kavName, themeList)
 		page.ChildRemoved:Connect(UpdateSize)
 
 		tabButton.MouseButton1Click:Connect(function()
-            playsound("rbxassetid://452267918", 0.3)
+			playsound("rbxassetid://452267918", 0.3)
 			UpdateSize()
 			for i,v in next, Pages:GetChildren() do
 				v.Visible = false
@@ -749,7 +749,7 @@ function Kavo.CreateLib(kavName, themeList)
 					end
 				end)
 				viewInfo.MouseButton1Click:Connect(function()
-                    playsound("rbxassetid://452267918", 0.3)
+					playsound("rbxassetid://452267918", 0.3)
 					if not viewDe then
 						viewDe = true
 						focusing = true
@@ -904,7 +904,7 @@ function Kavo.CreateLib(kavName, themeList)
 				local infBtn = viewInfo
 
 				btn.MouseButton1Click:Connect(function()
-                    playsound("rbxassetid://452267918", 0.3)
+					playsound("rbxassetid://452267918", 0.3)
 					if focusing then
 						for i,v in next, infoContainer:GetChildren() do
 							Utility:TweenObject(v, {Position = UDim2.new(0,0,2,0)}, 0.2)
@@ -950,7 +950,7 @@ function Kavo.CreateLib(kavName, themeList)
 				end)
 
 				viewInfo.MouseButton1Click:Connect(function()
-                    playsound("rbxassetid://452267918", 0.3)
+					playsound("rbxassetid://452267918", 0.3)
 					if not viewDe then
 						viewDe = true
 						focusing = true
@@ -1197,7 +1197,7 @@ function Kavo.CreateLib(kavName, themeList)
 					end
 				end)()
 				viewInfo.MouseButton1Click:Connect(function()
-                    playsound("rbxassetid://452267918", 0.3)
+					playsound("rbxassetid://452267918", 0.3)
 					if not viewDe then
 						viewDe = true
 						focusing = true
@@ -1464,7 +1464,7 @@ function Kavo.CreateLib(kavName, themeList)
 					end
 				end)
 				viewInfo.MouseButton1Click:Connect(function()
-                    playsound("rbxassetid://452267918", 0.3)
+					playsound("rbxassetid://452267918", 0.3)
 					if not viewDe then
 						viewDe = true
 						focusing = true
@@ -1535,7 +1535,7 @@ function Kavo.CreateLib(kavName, themeList)
 				dropOpen.TextSize = 14.000
 				dropOpen.ClipsDescendants = true
 				dropOpen.MouseButton1Click:Connect(function()
-                    playsound("rbxassetid://452267918", 0.3)
+					playsound("rbxassetid://452267918", 0.3)
 					if not focusing then
 						if opened then
 							opened = false
@@ -1710,7 +1710,7 @@ function Kavo.CreateLib(kavName, themeList)
 				end 
 
 				viewInfo.MouseButton1Click:Connect(function()
-                    playsound("rbxassetid://452267918", 0.3)
+					playsound("rbxassetid://452267918", 0.3)
 					if not viewDe then
 						viewDe = true
 						focusing = true
@@ -1760,7 +1760,7 @@ function Kavo.CreateLib(kavName, themeList)
 					optionSelect.TextXAlignment = Enum.TextXAlignment.Left
 					optionSelect.ClipsDescendants = true
 					optionSelect.MouseButton1Click:Connect(function()
-                        playsound("rbxassetid://452267918", 0.3)
+						playsound("rbxassetid://452267918", 0.3)
 						if not focusing then
 							opened = false
 							callback(v)
@@ -1862,7 +1862,7 @@ function Kavo.CreateLib(kavName, themeList)
 						UICorner_2.CornerRadius = UDim.new(0, 4)
 						UICorner_2.Parent = optionSelect
 						optionSelect.MouseButton1Click:Connect(function()
-                            playsound("rbxassetid://452267918", 0.3)
+							playsound("rbxassetid://452267918", 0.3)
 							if not focusing then
 								opened = false
 								callback(v)
@@ -2057,7 +2057,7 @@ function Kavo.CreateLib(kavName, themeList)
 				viewInfo.ImageRectOffset = Vector2.new(764, 764)
 				viewInfo.ImageRectSize = Vector2.new(36, 36)
 				viewInfo.MouseButton1Click:Connect(function()
-                    playsound("rbxassetid://452267918", 0.3)
+					playsound("rbxassetid://452267918", 0.3)
 					if not viewDe then
 						viewDe = true
 						focusing = true
@@ -2208,7 +2208,7 @@ function Kavo.CreateLib(kavName, themeList)
 				colorElement.TextColor3 = Color3.fromRGB(0, 0, 0)
 				colorElement.TextSize = 14.000
 				colorElement.MouseButton1Click:Connect(function()
-                    playsound("rbxassetid://452267918", 0.3)
+					playsound("rbxassetid://452267918", 0.3)
 					if not focusing then
 						if colorOpened then
 							colorOpened = false
@@ -2331,7 +2331,7 @@ function Kavo.CreateLib(kavName, themeList)
 				viewInfo.ImageRectOffset = Vector2.new(764, 764)
 				viewInfo.ImageRectSize = Vector2.new(36, 36)
 				viewInfo.MouseButton1Click:Connect(function()
-                    playsound("rbxassetid://452267918", 0.3)
+					playsound("rbxassetid://452267918", 0.3)
 					if not viewDe then
 						viewDe = true
 						focusing = true
@@ -2615,7 +2615,7 @@ function Kavo.CreateLib(kavName, themeList)
 				dark.MouseButton1Down:connect(function()playsound("rbxassetid://452267918", 0.3) darknesss=true end)
 				uis.InputEnded:Connect(function(input)
 					if input.UserInputType.Name == 'MouseButton1' or input.UserInputType.Name == 'Touch' then
-                        playsound("rbxassetid://452267918", 0.3)
+						playsound("rbxassetid://452267918", 0.3)
 						if darknesss then darknesss = false end
 						if colorpicker then colorpicker = false end
 					end
