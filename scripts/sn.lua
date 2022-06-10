@@ -3,7 +3,7 @@ Made by svamp
 abandoned script
 feel free to skid it just creds svamp or the real owner of script he borrowed
 ]]
-if not isfile("KavoConfig.JSON") then writefile("SytroNightConfig.JSON","{}")
+if not isfile("KavoConfig.JSON") then writefil("ImpactConfig.JSON","{}")
 end
 wait(0.55)
 spawn(function()
@@ -82,7 +82,7 @@ local function makeRainbowText(text)
 	end)
 end
 
-local SytroWaterMark = Instance.new("ScreenGui")
+local ImpactWaterMark = Instance.new("ScreenGui")
 local TextLabel = Instance.new("TextButton")
 local UIGradient = Instance.new("UIGradient")
 local TextLabel_2 = Instance.new("TextLabel")
@@ -90,19 +90,19 @@ local UIGradient_2 = Instance.new("UIGradient")
 local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
 local UITextSizeConstraint_2 = Instance.new("UITextSizeConstraint")
 
-SytroWaterMark.Name = "SytroWaterMark"
-SytroWaterMark.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-SytroWaterMark.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-SytroWaterMark.ResetOnSpawn = false
+ImpactWaterMark.Name = "ImpactWaterMark"
+ImpactWaterMark.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ImpactWaterMark.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ImpactWaterMark.ResetOnSpawn = false
 
-TextLabel.Parent = SytroWaterMark
+TextLabel.Parent = ImpactWaterMark
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BackgroundTransparency = 1.000
 TextLabel.BorderSizePixel = 0
 TextLabel.Position = UDim2.new(-0.000772226602, 0, 0.0343558267, 0)
 TextLabel.Size = UDim2.new(0.170134634, 0, 0.0700389072, 0)
 TextLabel.Font = Enum.Font.GothamBold
-TextLabel.Text = "SytroNight"
+TextLabel.Text = "Impact"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextScaled = true
 TextLabel.TextSize = 28.000
@@ -122,7 +122,7 @@ TextLabel_2.BorderSizePixel = 0
 TextLabel_2.Position = UDim2.new(-0.000772226602, 0, 0.67410934, 0)
 TextLabel_2.Size = UDim2.new(1, 0, 1, 0)
 TextLabel_2.Font = Enum.Font.GothamBold
-TextLabel_2.Text = "v1.2"
+TextLabel_2.Text = "v4.3"
 TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_2.TextScaled = true
 TextLabel_2.TextSize = 24.000
@@ -174,7 +174,7 @@ local KnockbackTable = debug.getupvalue(require(game:GetService("ReplicatedStora
 local ClientHandler = Client
 
 local function GetURL(scripturl)
-	return game:HttpGet("https://raw.githubusercontent.com/7GrandLittleBrother/SytroNight4ROBLOX/main/"..scripturl, true)
+	return game:HttpGet(" "..scripturl, true)
 end
 
 local function isAlive(plr)
@@ -561,8 +561,8 @@ function nuker()
 	end
 end
 
-local BNuker = Blatant:NewSection("BedNuker")
-BNuker:NewToggle("BedNuker", "Auto break bed and covers", function(state)
+local BNuker = Blatant:NewSection("Nuker")
+BNuker:NewToggle("Nuker", "Auto break bed and covers", function(state)
 	if state then
 		BindToStepped("BedNuker", 1, function()
 			nuker()
@@ -630,7 +630,7 @@ ESP:NewToggle("coming next update", "coming next update", function(state)
 	end
 end)
 
---[[ dont work
+
 runcode(function()
 	local function Cape(char, texture)
 		for i,v in pairs(char:GetDescendants()) do
@@ -696,7 +696,7 @@ runcode(function()
 					spawn(function()
 						pcall(function()
 
-							Cape(char, "rbxthumb://type=Asset&id=" .. 9824791700 .. "&w=420&h=420")
+							Cape(char, "rbxthumb://type=Asset&id=" ..  .. "&w=420&h=420")
 						end)
 					end)
 				end
@@ -705,7 +705,8 @@ runcode(function()
 				if lplr.Character and lplr.Character ~= oldchar then
 					spawn(function()
 						pcall(function()
-							Cape(lplr.Character, "rbxthumb://type=Asset&id=" .. 9824791700 .. "&w=420&h=420")
+							Cape(lplr.Character, "rbxthumb://type=Asset&id=" .. 
+ .. "&w=420&h=420")
 						end)
 					end)
 				end
