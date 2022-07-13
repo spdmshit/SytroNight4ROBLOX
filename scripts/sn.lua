@@ -49,9 +49,9 @@ local colors = {
 	TextColor = Color3.fromRGB(255,255,255),
 	ElementColor = Color3.fromRGB(20, 20, 20)
 }
-local kavoUi = loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandLittleBrother/SytroNight4ROBLOX/main/libraries/kavo.lua"))()
-local window = kavoUi.CreateLib("SytroNight V1.2", "BloodTheme")
-local entity = loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/Libraries/entityHandler.lua", true))()
+local kavoUi = loadstring(game:HttpGet("https://raw.githubusercontent.com/spdmshit/SytroNight4ROBLOX/main/libraries/kavo.lua"))()
+local window = kavoUi.CreateLib("SkidNight VSkidded", "BloodTheme")
+local entity = loadstring(game:HttpGet("https://raw.githubusercontent.com/spdmshit/SytroNight4ROBLOX/main/Libraries/entityHandler.lua", true))()
 
 do
 	local oldcharacteradded = entity.characterAdded
@@ -82,61 +82,6 @@ local function makeRainbowText(text)
 	end)
 end
 
-local ImpactWaterMark = Instance.new("ScreenGui")
-local TextLabel = Instance.new("TextButton")
-local UIGradient = Instance.new("UIGradient")
-local TextLabel_2 = Instance.new("TextLabel")
-local UIGradient_2 = Instance.new("UIGradient")
-local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
-local UITextSizeConstraint_2 = Instance.new("UITextSizeConstraint")
-
-ImpactWaterMark.Name = "ImpactWaterMark"
-ImpactWaterMark.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ImpactWaterMark.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-ImpactWaterMark.ResetOnSpawn = false
-
-TextLabel.Parent = ImpactWaterMark
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 1.000
-TextLabel.BorderSizePixel = 0
-TextLabel.Position = UDim2.new(-0.000772226602, 0, 0.0343558267, 0)
-TextLabel.Size = UDim2.new(0.170134634, 0, 0.0700389072, 0)
-TextLabel.Font = Enum.Font.GothamBold
-TextLabel.Text = "Impact"
-TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextScaled = true
-TextLabel.TextSize = 28.000
-TextLabel.TextWrapped = true
-TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-TextLabel.MouseButton1Down:Connect(function()
-	kavoUi:ToggleUI()
-end)
-
-UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(126, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(209, 0, 0))}
-UIGradient.Parent = TextLabel
-
-TextLabel_2.Parent = TextLabel
-TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_2.BackgroundTransparency = 1.000
-TextLabel_2.BorderSizePixel = 0
-TextLabel_2.Position = UDim2.new(-0.000772226602, 0, 0.67410934, 0)
-TextLabel_2.Size = UDim2.new(1, 0, 1, 0)
-TextLabel_2.Font = Enum.Font.GothamBold
-TextLabel_2.Text = "v4.3"
-TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_2.TextScaled = true
-TextLabel_2.TextSize = 24.000
-TextLabel_2.TextWrapped = true
-TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
-
-UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(126, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(209, 0, 0))}
-UIGradient_2.Parent = TextLabel_2
-
-UITextSizeConstraint.Parent = TextLabel_2
-UITextSizeConstraint.MaxTextSize = 24
-
-UITextSizeConstraint_2.Parent = TextLabel
-UITextSizeConstraint_2.MaxTextSize = 27
 
 repeat task.wait() until (entity.isAlive)
 
@@ -391,15 +336,6 @@ local World = window:NewTab("World")
 local UI = window:NewTab("Ui")
 
 local Credits = Credits:NewSection("Credits")
-Credits:NewLabel("Credits UI: Kavo ui")
-Credits:NewLabel("Credits InfYield: FlyJump")
-Credits:NewLabel("Credits 7GrandDad: Velocity")
-Credits:NewLabel("Credits 7GrandDad: CFrame speed")
-Credits:NewLabel("Credits Moerii: killaura")
-Credits:NewLabel("Credits Moerii: bednuker")
-Credits:NewLabel("Special thanks to Moerii: for Killaura")
-Credits:NewLabel("Special thanks to Moerii: for BedNuker")
-Credits:NewLabel("Special thanks to Vamp: For creating the script")
 
 local Reach = Combat:NewSection("Reach")
 Reach:NewToggle("Reach", "Extend your attack range", function(state)
