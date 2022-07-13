@@ -83,6 +83,29 @@ local function makeRainbowText(text)
 end
 
 
+
+local MLModdedToggler = Instance.new("ScreenGui")
+local MLMODDEDTOGGLER = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
+
+
+MLModdedToggler.Name = "ML Modded Toggler"
+MLModdedToggler.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+MLMODDEDTOGGLER.Parent = game.CoreGui
+
+
+MLMODDEDTOGGLER.Name = "ML MODDED TOGGLER"
+MLMODDEDTOGGLER.Parent = MLModdedToggler
+MLMODDEDTOGGLER.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MLMODDEDTOGGLER.Position = UDim2.new(0.0223759729, 0, 0.0135922357, 0)
+MLMODDEDTOGGLER.Size = UDim2.new(0, 100, 0, 100)
+MLMODDEDTOGGLER.Image = "http://www.roblox.com/asset/?id=10215342765"
+MLMODDEDTOGGLER.MouseButton1Down:Connect(function()
+	kavoUI:ToggleUI()
+end)
+
+UICorner.Parent = MLMODDEDTOGGLER
+
 repeat task.wait() until (entity.isAlive)
 
 local players = game:GetService("Players")
