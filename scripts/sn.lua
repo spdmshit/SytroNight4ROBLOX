@@ -3,7 +3,7 @@ Made by svamp
 abandoned script
 feel free to skid it just creds svamp or the real owner of script he borrowed
 ]]
-if not isfile("KavoConfig.JSON") then writefil("ImpactConfig.JSON","{}")
+if not isfile("KavoConfig.JSON") then writefil("KavoConfig.JSON","{}")
 end
 wait(0.55)
 spawn(function()
@@ -12,36 +12,7 @@ spawn(function()
 			v:Remove()
 		end
 	end
-	local sky = Instance.new("Sky")
-	sky.StarCount = 5000
-	sky.SkyboxUp = "rbxassetid://9468074724"
-	sky.SkyboxLf = "rbxassetid://9468063157"
-	sky.SkyboxFt = "rbxassetid://9468061027"
-	sky.SkyboxBk = "rbxassetid://9468068462"
-	sky.SkyboxDn = "rbxassetid://9468081097"
-	sky.SkyboxRt = "rbxassetid://9468057091"
-	sky.SunTextureId = ""
-	sky.SunAngularSize = 11
-	sky.MoonTextureId = ""
-	sky.MoonAngularSize = 30
-	sky.Parent = game:GetService("Lighting")
-	local sunray = Instance.new("SunRaysEffect")
-	sunray.Intensity = 0.03
-	sunray.Parent = game:GetService("Lighting")
-	local bloom = Instance.new("BloomEffect")
-	bloom.Threshold = 2
-	bloom.Intensity = 1
-	bloom.Size = 2
-	bloom.Parent = game:GetService("Lighting")
-	local atmosphere = Instance.new("Atmosphere")
-	atmosphere.Density = 0.3
-	atmosphere.Offset = 0.25
-	atmosphere.Color = Color3.fromRGB(198, 198, 198)
-	atmosphere.Decay = Color3.fromRGB(104, 112, 124)
-	atmosphere.Glare = 0
-	atmosphere.Haze = 0
-	atmosphere.Parent = game:GetService("Lighting")
-end)
+	
 local colors = {
 	SchemeColor = Color3.fromRGB(0,255,255),
 	Background = Color3.fromRGB(0, 0, 0),
@@ -51,7 +22,7 @@ local colors = {
 }
 local kavoUi = loadstring(game:HttpGet("https://raw.githubusercontent.com/spdmshit/SytroNight4ROBLOX/main/libraries/kavo.lua"))()
 local window = kavoUi.CreateLib("SkidNight VSkidded", "BloodTheme")
-local entity = loadstring(game:HttpGet("https://raw.githubusercontent.com/spdmshit/SytroNight4ROBLOX/main/Libraries/entityHandler.lua", true))()
+local entity = loadstring(game:HttpGet("https://raw.githubusercontent.com/spdmshit/SytroNight4ROBLOX/main/libraries/entityHandler.lua", true))()
 
 do
 	local oldcharacteradded = entity.characterAdded
@@ -83,28 +54,51 @@ local function makeRainbowText(text)
 end
 
 
-
-local MLModdedToggler = Instance.new("ScreenGui")
-local MLMODDEDTOGGLER = Instance.new("ImageButton")
+-- Moonlight Toggler 
+local MainToggle = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
 local UICorner = Instance.new("UICorner")
+local ToggleBtn = Instance.new("ImageButton")
 
+MainToggle.Name = "MainToggle"
+MainToggle.Parent = game.CoreGui
+MainToggle.ResetOnSpawn = false
 
-MLModdedToggler.Name = "ML Modded Toggler"
-MLModdedToggler.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-MLMODDEDTOGGLER.Parent = game.CoreGui
+Frame.Parent = MainToggle
+Frame.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+Frame.BackgroundTransparency = 0.200
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.0109622413, 0, 0.0136186769, 0)
+Frame.Size = UDim2.new(0, 149, 0, 149)
 
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.0402684584, 0, 0.798657715, 0)
+TextLabel.Size = UDim2.new(0, 132, 0, 30)
+TextLabel.Font = Enum.Font.SourceSansLight
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+TextLabel.Text = "Moonlight Modded"
+makeRainbowText(TextLabel, true)
 
-MLMODDEDTOGGLER.Name = "ML MODDED TOGGLER"
-MLMODDEDTOGGLER.Parent = MLModdedToggler
-MLMODDEDTOGGLER.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-MLMODDEDTOGGLER.Position = UDim2.new(0.0223759729, 0, 0.0135922357, 0)
-MLMODDEDTOGGLER.Size = UDim2.new(0, 100, 0, 100)
-MLMODDEDTOGGLER.Image = "http://www.roblox.com/asset/?id=10215342765"
-MLMODDEDTOGGLER.MouseButton1Down:Connect(function()
-	kavoUI:ToggleUI()
+UICorner.Parent = Frame
+
+ToggleBtn.Name = "ToggleBtn"
+ToggleBtn.Parent = Frame
+ToggleBtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ToggleBtn.BackgroundTransparency = 1.000
+ToggleBtn.Position = UDim2.new(0.137143791, 0, 0.0700296983, 0)
+ToggleBtn.Size = UDim2.new(0, 110, 0, 110)
+ToggleBtn.Image = "http://www.roblox.com/asset/?id=10215342765"
+ToggleBtn.MouseButton1Down:connect(function()
+  kavoUi:ToggleUI()
 end)
-
-UICorner.Parent = MLMODDEDTOGGLER
 
 repeat task.wait() until (entity.isAlive)
 
