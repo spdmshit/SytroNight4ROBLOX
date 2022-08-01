@@ -118,7 +118,14 @@ local themeStyles = {
         Header = Color3.fromRGB(22, 29, 31),
         TextColor = Color3.fromRGB(255,255,255),
         ElementColor = Color3.fromRGB(22, 29, 31)
-    }
+    },
+    Banana = {
+        SchemeColor = Color3.fromRGB(255,255,0),
+        Background = Color3.fromRGB(0,0,0),
+        Header = Color3.fromRGB(255,165,0),
+        TextColor = Color3.fromRGB(255,255,255),
+        ElementColor = Color3.fromRGB(74, 58, 84)
+    },
 }
 local oldTheme = ""
 
