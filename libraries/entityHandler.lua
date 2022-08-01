@@ -1,3 +1,5 @@
+--ez
+
 local entity = {
     entityList = {},
     entityConnections = {},
